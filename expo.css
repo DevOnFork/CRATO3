@@ -1,0 +1,1020 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+}
+@font-face {
+  font-family: 'nombre';
+  src: url('fonts/nombre.woff2') format('woff2'),
+       url('fonts/nombre.woff') format('woff'),
+       url('fonts/nomre.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'nombre', sans-serif;
+}
+a {
+  text-decoration: none;
+  color: inherit; /* Asegura que el color del enlace herede el color del texto */
+}
+
+.swiper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden; /* Asegura que el contenido no se desborde */
+  margin-bottom: 40px;
+}
+@media (max-width: 768px) {
+.swiper {
+  height: 50vh; /* Reducir la altura en pantallas pequeñas */
+}
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: flex-start; /* Alinea el contenido a la izquierda */
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: opacity 1s ease-in-out; /* Transición suave de opacidad */
+}
+
+.slide-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Asegura que esté detrás del contenido */
+  background: rgba(0, 0, 0, 0.744); /* Opacidad muy fuerte */
+  display: flex; /* Asegura que la capa de opacidad cubra todo el contenedor */
+  align-items: center; /* Centra el contenido verticalmente */
+  justify-content: center; /* Centra el contenido horizontalmente */
+}
+
+.slide-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9); /* Opacidad muy fuerte */
+  z-index: -1; /* Asegura que la capa esté detrás del contenido */
+}
+
+.slide-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra todo el contenedor sin estirarse */
+  object-position: center; /* Centra la imagen en el contenedor */
+  opacity: 0.3; /* Reduce la opacidad de la imagen para permitir que la capa de fondo sea más visible */
+  transition: opacity 1s ease-in-out; /* Transición suave de opacidad para la imagen */
+}
+@media (min-width: 1200px) {
+.container {
+  max-width: 1200px;
+}
+}
+.container {
+  position: relative;
+  z-index: 1; /* Asegura que el texto esté sobre las imágenes */
+  max-width: 650px;
+  width: 90%; /* Ajusta el ancho del contenedor */
+  color: white; /* Asegura que el texto sea blanco */
+  text-align: left; /* Alinea el texto a la izquierda */
+  padding: 2rem; /* Añade espacio alrededor del texto */
+  margin-left: 2rem; /* Ajusta el margen izquierdo del contenedor para moverlo hacia la izquierda */
+}
+
+.slide-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-content__subtitle,
+.slide-content__title,
+.slide-content__text,
+.slide-content__buttons {
+  opacity: 1; /* Asegura que el texto sea visible siempre */
+}
+
+.slide-content__subtitle {
+  font-size: 2rem; /* Aumenta el tamaño del subtítulo */
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+
+.slide-content__title {
+  font-size: 5rem; /* Aumenta el tamaño del título */
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-shadow: 0 0 4px #000000;
+}
+
+.slide-content__text {
+  font-size: 1.2rem; /* Aumenta el tamaño del texto */
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.slide-content__buttons {
+  margin-top: 1rem;
+}
+
+.button {
+  padding: 1rem 2rem;
+  background-color: #32303c; /* Fondo gris para el botón */
+  color: white; /* Texto blanco para el botón */
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 300ms ease, padding 300ms ease;
+  cursor: pointer; /* Asegura que el botón sea clickeable */
+}
+
+.button:hover {
+  background-color: #57565f; /* Gris más oscuro al pasar el ratón sobre el botón */
+  padding: 1rem 2.5rem; /* Ajusta el padding según sea necesario */
+}
+
+.swiper-pagination {
+  bottom: 25px;
+}
+
+.swiper-pagination-bullet {
+  background-color: white; /* Cambia el color de los puntos de paginación a blanco */
+  transition: background-color 300ms ease;
+}
+
+.swiper-pagination-bullet-active {
+  width: 40px;
+  border-radius: 10px;
+  background-color: #ccc; /* Color de fondo para el punto activo, opcional */
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+.container {
+  max-width: 960px;
+}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    max-width: 720px;
+  }
+  .swiper-slide .container {
+    padding: 1rem; /* Reducir el padding */
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+/*** Fonts Face CSS End ****/
+
+/*** Common Element CSS Start **/
+.cd__main{
+ background: #222 !important;
+ position: relative;
+ overflow: hidden;
+}
+* {
+margin: 0px;
+padding: 0px;
+}
+
+.clear {
+clear: both;
+}
+img {
+max-width: 100%;
+border: 0px;
+}
+ul,
+ol {
+list-style: none;
+}
+a {
+text-decoration: none;
+color: inherit;
+outline: none;
+transition: all 0.4s ease-in-out;
+-webkit-transition: all 0.4s ease-in-out;
+}
+a:focus,
+a:active,
+a:visited,
+a:hover {
+text-decoration: none;
+outline: none;
+}
+.slide-content__buttons a:hover {
+color: #becbff;
+}
+h2 {
+margin-bottom: 48px;
+padding-bottom: 16px;
+font-size: 20px;
+line-height: 28px;
+font-weight: 700;
+position: relative;
+text-transform: capitalize;
+justify-content: center;
+}
+h3 {
+margin: 0 0 10px;
+font-size: 28px;
+line-height: 36px;
+}
+button {
+outline: none !important;
+}
+/*** Common Element CSS End ***/
+
+/* -------- title style -------PARTIDOS POLITICOS */
+.line-title {
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 2.5em;
+  padding-bottom: 40px;
+  margin-bottom: 30px;
+  font-style: oblique;
+}
+
+.line-title::before,
+.line-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.line-title::before {
+  width: 100%;
+  background: #f2f2f2;
+}
+
+.line-title::after {
+  width: 100%;  /* Ahora la línea abarca todo el ancho del elemento */
+  background: #f15a59; /* Cambia el color de la línea aquí */
+}
+
+
+/*** Middle section CSS Start **/
+/* -------- Landing page ------- */
+.game-section .item {
+  transition: all 0.4s ease-in-out; /* Suaviza la transición */
+  margin: 0 15px 60px;
+  width: 320px;
+  height: 400px;
+  display: flex;
+  align-items: flex-end;
+  background: #c05858 no-repeat center center / cover;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.game-section .item:hover {
+  width: 500px; /* O el tamaño que desees al hacer hover */
+  box-shadow: 12px 40px 40px rgba(0, 0, 0, 0);
+}
+
+.game-section .item:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+
+.game-section .item-desc {
+  padding: 0 24px 12px;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transform: translateY(calc(100% - 54px));
+  transition: all 0.4s ease-in-out;
+}
+
+.game-section .item:hover .item-desc {
+  transform: none;
+}
+
+.game-section .item-desc p {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: all 0.4s ease-in-out;
+}
+
+.game-section .item:hover .item-desc p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.game-section .owl-theme.custom-carousel .owl-dots {
+margin-top: -20px;
+position: relative;
+z-index: 5;
+}
+/*** Middle section CSS End ****/
+
+/** responsive css Start ***/
+
+@media (min-width: 992px) and (max-width: 1199px) {
+h2 {
+  margin-bottom: 32px;
+}
+h3 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+/* -------- Landing page ------- */
+.game-section {
+  padding: 50px 30px;
+}
+.game-section .item {
+  margin: 0 12px 60px;
+  width: 260px;
+  height: 360px;
+}
+.game-section .item.active {
+  width: 400px;
+}
+.game-section .item-desc {
+  transform: translateY(calc(100% - 46px));
+  -webkit-transform: translateY(calc(100% - 46px));
+}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+h2 {
+  margin-bottom: 32px;
+}
+h3 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  line-height: 32px;
+}
+.line-title {
+  width: 330px;
+}
+
+/* -------- Landing page ------- */
+.game-section {
+  text-align: center; /* Centra el texto dentro del contenedor */
+  margin: 20px 0; /* Ajusta el margen superior e inferior según sea necesario */
+}
+
+.game-section .line-title {
+  display: inline-block; /* Asegura que el título sea tratado como un bloque en línea, permitiendo el centrado */
+  font-size: 2em; /* Ajusta el tamaño del texto según sea necesario */
+  font-weight: bold; /* Opcional: haz que el texto sea más negrita */
+}
+
+.game-section .item {
+  margin: 0 12px 60px;
+  width: 240px;
+  height: 330px;
+}
+.game-section .item.active {
+  width: 360px;
+}
+.game-section .item-desc {
+  transform: translateY(calc(100% - 42px));
+  -webkit-transform: translateY(calc(100% - 42px));
+}
+}
+
+@media (max-width: 767px) {
+body {
+  font-size: 14px;
+}
+h2 {
+  margin-bottom: 20px;
+}
+h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+  line-height: 24px;
+}
+.line-title {
+  width: 250px;
+}
+
+/* -------- Landing page ------- */
+.game-section {
+  padding: 30px 15px 20px;
+}
+.game-section .item {
+  margin: 0 10px 40px;
+  width: 200px;
+  height: 280px;
+}
+.game-section .item.active {
+  width: 270px;
+  box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 6px 10px 10px rgba(255, 255, 255, 0.25);
+}
+.game-section .item-desc {
+  padding: 0 14px 5px;
+  transform: translateY(calc(100% - 42px));
+  -webkit-transform: translateY(calc(100% - 42px));
+}
+}
+/* Ocultar flechas adicionales en la esquina */
+.owl-theme .owl-nav .owl-prev, 
+.owl-theme .owl-nav .owl-next {
+display: none;
+}
+
+/* Ajustar la posición y el estilo de las flechas principales */
+.owl-theme .owl-nav {
+display: flex;
+justify-content: center;
+position: relative; /* Ajustar la posición para que no interfiera con el contenido */
+margin-top: 20px; /* Separar las flechas de los puntos */
+}
+
+.owl-theme .owl-nav button {
+background: none; /* Eliminar cualquier cuadro alrededor de las flechas */
+border: none;
+color: #d21312; /* Color gris para las flechas */
+font-size: 36px; /* Tamaño grande para las flechas */
+cursor: pointer;
+padding: 0;
+margin: 0 20px; /* Espacio entre las flechas */
+transition: color 0.3s ease;
+}
+
+.owl-theme .owl-nav button:hover {
+color: #333; /* Color más oscuro al hacer hover */
+}
+
+/* Separar los puntos del carrusel de las flechas */
+.owl-theme .owl-dots {
+margin-bottom: 60px; /* Aumentar la distancia entre los puntos y las flechas */
+}
+.owl-carousel .owl-stage {
+  display: flex; /* Asegura que los elementos del carrusel se muestren en una fila */
+}
+
+.owl-carousel .owl-item {
+  flex: 0 0 auto; /* Evita el ajuste automático del ancho del elemento */
+}
+.item {
+  position: relative;
+  cursor: pointer;
+}
+
+.item-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+}
+
+.item-desc {
+  position: relative;
+  z-index: 2;
+  /* Asegúrate de que el contenido de la descripción esté por encima del enlace */
+}  
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+* {
+box-sizing: border-box;
+}
+.cards {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  gap: 80px; /* Aumenta este valor para mayor separación entre las cartas */
+  padding-bottom: 70px;
+  margin-bottom: 80px;
+}
+@media (max-width: 1024px) {
+  .card {
+    flex: 1 1 calc(50% - 40px); /* 2 columnas en pantallas medianas */
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 1 1 calc(100% - 40px); /* 1 columna en pantallas pequeñas */
+  }
+}
+
+.card {
+  margin: 0; /* Elimina el margen derecho de las tarjetas para usar gap */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+  width: 300px; /* Ajusta el ancho de las tarjetas si es necesario */
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0 0 15px  #ED2B2A;
+  transform: scale(1.1, 1.1);
+}
+
+
+
+.card--1 .card__img,
+.card--1 .card__img--hover {
+background-image: url("https://www.diocesisdetorreon.org/wp-content/uploads/2020/10/obispo-.jpg");
+}
+
+.card--2 .card__img,
+.card--2 .card__img--hover {
+background-image: url("https://www.tec.ac.cr/hoyeneltec/sites/default/files/styles/colorbox/public/media/img/main/tse_.jpg");
+}
+.card--3 .card__img,
+.card--3 .card__img--hover {
+background-image: url("https://diario16plus.com/uploads/s1/30/76/57/politica.jpeg");
+}
+
+
+.card__img {
+visibility: hidden;
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+width: 100%;
+height: 235px;
+border-top-left-radius: 12px;
+border-top-right-radius: 12px;
+}
+
+
+.card__img--hover {
+transition: 0.2s all ease-out;
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+width: 100%;
+position: absolute;
+height: 235px;
+border-top-left-radius: 12px;
+border-top-right-radius: 12px;
+top: 0;
+}
+
+
+.card__info {
+z-index: 2;
+background-color: #070a52;
+border-bottom-left-radius: 12px;
+border-bottom-right-radius: 12px;
+padding: 16px 24px 24px 24px;
+display: flex;
+flex-direction: column;
+align-items: center; 
+text-align: center;
+}
+
+.card__title {
+margin-top: 5px;
+font-style: oblique;
+font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+margin-bottom: 10px;
+color: rgb(247, 247, 247);
+text-align: center;
+font-weight: bold;
+}
+
+.card__by {
+font-size: 12px;
+margin-bottom: 20px; 
+}
+
+.card__author {
+font-weight: 400;
+text-decoration: none;
+color: rgb(255, 255, 255);
+text-align: center;
+}
+
+
+
+.read-more {
+margin-top: auto; 
+padding: 10px 20px;
+font-size: 16px;
+font-weight: 600;
+color: #D21312;
+text-transform: uppercase;
+background-color: #ffffff; 
+border-radius: 50px;
+text-decoration: none;
+transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+background-color: #e3e3e3;
+color:#070a52;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #fff;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.btn:hover {
+  background-color: #fff;
+}
+@media (max-width: 1024px) {
+  .card {
+      flex: 1 1 calc(50% - 40px); 
+  }
+}
+@media (max-width: 738px) {
+  .card {
+      flex: 1 1 calc(100% - 40px); 
+  }
+}
+@keyframes show{
+  from{
+      opacity: 0;
+      scale: 25%;
+  }
+  to{
+      opacity: 1;
+      scale: 100%;
+  }
+}
+
+.news-section {
+width: 90%;
+max-width: 1200px;
+margin: 40px auto;
+text-align: center;
+}
+
+.news-title {
+font-size: 2.5em;
+margin-bottom: 20px;
+font-style: oblique;
+font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.news-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 20px;
+}
+
+.news-card {
+background-color: #becbff;
+}
+
+.news-card a {
+text-decoration: none;
+color: rgb(0, 0, 0);
+display: block;
+padding: 20px;
+}
+
+.news-card img {
+width: 100%;
+}
+
+.news-card h3 {
+font-size: 1.5em;
+margin: 10px 0;
+}
+
+.news-card p {
+font-size: 1em;
+color: rgb(0, 0, 0);
+}
+
+.news-card:hover {
+transform: translateY(-10px);
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+footer {
+background-color:#070a52;
+color: white;
+padding: 30px 0;
+text-align: center;
+}
+
+.footer-content {
+margin-bottom: 20px;
+}
+.footer-content h3 {
+margin: 0;
+font-size: 24px;
+margin-bottom: 10px;
+}
+.footer-content p {
+font-size: 14px;
+line-height: 1.6;
+}
+.socials {
+list-style: none;
+padding: 0;
+display: flex;
+justify-content: center;
+margin: 2px 0;
+}
+.socials li {
+margin: 0 10px;
+}
+.socials a {
+color: white;
+font-size: 20px;
+text-decoration: none;
+}
+.footer-bottom {
+background-color: #00000000;
+padding: 10px 0;
+}
+.footer-bottom p {
+margin: 0;
+font-size: 14px;
+}
+.footer-links {
+list-style: none;
+padding: 0;
+display: flex;
+justify-content: center;
+margin: 10px 0 0;
+}
+.footer-links li {
+margin: 0 10px;
+}
+.footer-links a {
+color: white;
+text-decoration: none;
+font-size: 14px;
+}
+.footer-links a:hover {
+text-decoration: underline;
+}
+@media (max-width: 768px) {
+.footer-content h3 {
+    font-size: 20px;
+}
+.footer-content p {
+    font-size: 12px;
+}
+.socials a {
+    font-size: 18px;
+}
+.footer-links {
+    flex-direction: column;
+    align-items: center;
+}
+.footer-links li {
+    margin: 5px 0;
+}
+}
+@media (max-width: 480px) {
+.footer-content h3 {
+    font-size: 18px;
+}
+.footer-content p {
+    font-size: 12px;
+}
+.socials a {
+    font-size: 16px;
+}
+.footer-links a {
+    font-size: 12px;
+}
+.footer-bottom p {
+    font-size: 12px;
+}
+}
+
+
+.navbar {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+background: rgba(0, 0, 0, 0.7);
+color: white;
+display: flex;
+align-items: center;
+padding: 10px 20px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+transition: top 0.3s;
+z-index: 1000;
+}
+
+.logo {
+  height: 90px; /* Aumentado el tamaño del logo */
+  margin-right: 20px;
+}
+@media (min-width: 1200px) {
+  .logo {
+    height: 60px; /* Aumentado ligeramente el tamaño del logo */
+    margin-right: 25px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .logo {
+    height: 90px; /* Tamaño original */
+    margin-right: 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .logo {
+    height: 75px;
+    margin-right: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .logo {
+    height: 60px;
+    margin-right: 10px;
+  }
+}
+
+.nav-links {
+list-style: none;
+display: flex;
+margin: 0;
+padding: 0;
+flex-grow: 1;
+justify-content: flex-end;
+}
+
+.nav-links li {
+margin: 0 15px;
+position: relative;
+}
+
+.nav-links a {
+color: white;
+text-decoration: none;
+padding: 10px;
+display: block;
+transition: background-color 0.3s, border-bottom 0.3s;
+}
+
+.nav-links a:hover {
+background-color: rgba(255, 255, 255, 0.2);
+border-bottom: 2px solid white;
+}
+
+.nav-links a i {
+margin-right: 8px;
+font-size: 20px;
+}
+
+.dropdown {
+position: relative;
+}
+
+.dropdown-btn::after {
+content: '\f0d7'; /* Font Awesome down arrow */
+font-family: 'Font Awesome 5 Free';
+font-weight: 900;
+margin-left: 5px;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+top: 100%;
+right: 0;
+background: rgba(0, 0, 0, 0.9);
+border: 1px solid rgba(255, 255, 255, 0.3);
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+width: 200px;
+}
+
+.dropdown-content a {
+display: block;
+padding: 10px;
+color: white;
+text-decoration: none;
+border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dropdown-content a:last-child {
+border-bottom: none;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+
+.dropdown:hover .dropdown-btn::after {
+content: '\f0d8'; /* Font Awesome up arrow */
+}
+
+/* Navbar en laptops y tablets en horizontal */
+@media (min-width: 992px) and (max-width: 1199px) {
+.navbar {
+  padding: 15px 40px;
+}
+
+.navbar .logo {
+  font-size: 1.8rem;
+}
+
+.navbar ul {
+  gap: 25px;
+}
+}
+/* Navbar en laptops y tablets en horizontal */
+@media (min-width: 992px) and (max-width: 1199px) {
+.navbar {
+  padding: 15px 40px;
+}
+
+.navbar .logo {
+  font-size: 1.8rem;
+  height: 45px;
+}
+
+.navbar ul {
+  gap: 25px;
+
+}
+/* Navbar en pantallas grandes (monitores) */
+@media (min-width: 1200px) {
+.navbar {
+  padding: 20px 50px;
+}
+
+.navbar .logo {
+  font-size: 2rem;
+}
+
+.navbar ul {
+  gap: 30px;
+}
+}
+
+/* Navbar en celulares grandes */
+@media (max-width: 767px) {
+.navbar {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar .logo {
+  font-size: 1.3rem;
+}
+
+.navbar ul {
+  display: none; /* Escondemos el menú estándar */
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: #fff; /* Cambiar según diseño */
+  width: 100%;
+  gap: 15px;
+  padding: 15px;
+}
+
+.navbar ul.show-menu {
+  display: flex; /* Mostrar el menú cuando se haga clic */
+}
+
+.menu-toggle {
+  display: block; /* Icono hamburguesa */
+  cursor: pointer;
+  font-size: 2rem;
+}
+}
+}
