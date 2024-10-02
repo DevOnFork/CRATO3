@@ -59,15 +59,15 @@ font-weight: normal;
         font-weight: normal;
         }
 
+        @media (max-width: 768px) {
+          .parent {
+            flex-direction: column; /* Cambia a una columna */
+            align-items: center; /* Centra los elementos */
+          }
+          
+          .abcard, .abcard2, .abcard3 {
+            flex-basis: 100%; /* Cada tarjeta ocupará el 100% del ancho */
+            max-width: 90%; /* Limita el ancho máximo al 90% del contenedor */
+          }
+        }
 
-@media (max-width: 768px) {
-  .parent {
-    grid-template-columns: 1fr; /* Make the grid a single column */
-    grid-template-rows: auto; /* Let the rows adjust to the content height */
-  }
-  .abcard,
-  .abcard2,
-  .abcard3 {
-    grid-area: auto; /* Let the grid area adjust automatically */
-  }
-}
